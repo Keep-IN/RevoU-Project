@@ -1,0 +1,191 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Kalkulator</title>
+    <!-- Bootstrap CSS -->
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css"
+      rel="stylesheet" 
+      integrity="sha384-GLhlTQ8iRABdZLl6O3oVMWSktQOp6b7In1Zl3/Jr59b6EGGoI1aFkw7cmDA6j6gD"
+      crossorigin="anonymous"
+    />
+    <link  rel="stylesheet" href="index.css">
+    <!-- Bootstrap Font Icon CSS -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.5.0/font/bootstrap-icons.css">
+  </head>
+  <body>
+    <div class="container-fluid">
+      <div class="row">
+        <div class="col">
+          <div class = "contentatas">
+            <h1 id="title">KALKULATOR BMI</h1>
+            <p>
+              Berat badan ideal adalah impian semua orang. Tidak hanya memiliki
+              bentuk tubuh yang menunjang penampilan, berat bada ideal juga
+              menandakan kondisi tubuh yang sehat. Bagaimana denganmu? Yuk, htung
+              sekarang di kalkulator BMI
+            </p>
+            <div class = "formContainer">
+              <strong>Jenis Kelamin</strong>
+              <br>
+              <div class="form-check form-check-inline">
+                <input
+                  class="form-check-input"
+                  type="radio"
+                  name="inlineRadioOptions"
+                  id="laki"
+                  value="option1"
+                  required ="true"
+                />
+                <label class="form-check-label" for="inlineRadio1">Laki-Laki</label>
+              </div>
+              <div class="form-check form-check-inline">
+                <input
+                  class="form-check-input"
+                  type="radio"
+                  name="inlineRadioOptions"
+                  id="perempuan"
+                  value="option2"
+                  required ="true"
+                />
+                <label class="form-check-label" for="inlineRadio2">Perempuan</label>
+              </div>
+              <div class="form-group">
+                <label class="control-label" for="berat-badan">
+                  Berat badan (kg)
+                </label>
+                <div class="input-group ">
+                  <div class="input-group-addon">
+                    <i class="bi bi-pencil-square"></i>
+                  </div>
+                  <input
+                    class="form-control"
+                    id="berat-badan"
+                    name="berat-badan"
+                    type="number"
+                    placeholder="Berat badan anda dalam kilogram"
+                    required ="true"
+                  />
+                </div>
+              </div>
+              <div class="form-group">
+                <label class="control-label" for="usia"> Usia (tahun) </label>
+                <div class="input-group input-group ">
+                  <div class="input-group-addon">
+                    <i class="bi bi-pencil-square"></i>
+                  </div>
+                  <input
+                    class="form-control"
+                    id="usia-tahun"
+                    name="usia-tahun"
+                    type="number"
+                    placeholder="Usia anda dalam tahun"
+                    required ="true"
+                  />
+                </div>
+              </div>
+              <div class="form-group">
+                <label class="control-label" for="tinggi-badan">
+                  Tinggi badan (cm)
+                </label>
+                <div class="input-group input-group ">
+                  <div class="input-group-addon">
+                    <i class="bi bi-pencil-square"></i>
+                  </div>
+                  <input
+                    class="form-control"
+                    id="tinggi-badan"
+                    name="tinggi-badan"
+                    type="number"
+                    placeholder="Tinggi badan anda dalam centimeter"
+                    required ="true"
+                  />
+                </div>
+              </div>
+              <br>
+              <div class="d-grid gap-2 d-md-block" id="buttonContainer">
+                <button class="btn btn-primary" id="cekhasil" type="button" onclick=calculate()>Hitung BMI</button>
+                <button class="btn btn-primary" id ="resetButton" type="button">Reset</button>
+              </div>
+  
+            </div>
+            <br>
+            <h3>Keunggulan Fitur</h3>
+            <table>
+              <ol>
+                <li>Menghitung berat badan</li>
+                <li>Menentukan kategori berat badan ideal atau tidak</li>
+                <li>Mempersiapkan program penurunan berat badan</li>
+              </ol>
+            </table>
+            <div class="content 1">
+              <p>
+                Kalkulator ini hanya boleh digunakan oleh orang dewasa (wanita
+                hamil atau menyusui tidak boleh mengandalkan pembacaan BMI ini)
+                dan tidak ada tindakan yang harus diambil berdasarkan nilainya
+                selain berkonsultasi dengan orang yang memenuhi syarat seperti
+                dokter.
+              </p>
+            </div>
+            <div class="content2">
+              <p>
+                Kalkulator akan memberi Anda gambaran tentang perbandingan berat
+                badan Anda dengan nilai umum. Indeks Massa Tubuh (atau BMI)
+                dihitung sebagai berat badan Anda (dalam kilogram) dibagi dengan
+                kuadrat tingi badan Anda (dalam meter) atau BMI = Kg/M²
+              </p>
+            </div>
+          </div>
+        </div>
+        <div class="col">
+          <div class="contentbawah">
+            <h3>Hasil</h3>
+            <div class="resultContent">
+              <h4 id="resultTitle">
+                Berat Badan Result
+              </h4>
+              <h1 id="resultNum">0 Kg</h1>
+              <br>
+              <p id="resultDesc"></p>
+              <br>
+              <button class="btn btn-primary" id ="resetButton" type="button">Download hasil BMI</button>
+            </div>
+            <br>
+            <div>
+              <p>Hasil BMI antara null dan null</p>
+              <p>Anda berada dalam kategori overweight atau berat badan berlebih.
+                Cara terbaik untuk menurunkan berat badan adalah dengan mengatur kalor makanan yang dikonsumsi dan berolahraga.
+                Jika BMI anda berada dalam kategori ini maka Anda dianjurkan untuk menurunkan berat bdan hingga batas Normal.
+              </p>
+              <button type="button" class="btn btn-primary btn-md" id="btnKonsul">Konsultasi Dokter Via Aplikasi</button>
+              <button type="button" class="btn btn-primary btn-md" id="btnRegist">Registrasi Online Sekarang</button>
+            </div>
+            <br>
+            <div class ="penyakitContent">
+              <div class="style-content3">
+                <p>
+                  Beberapa penyakit yang berasal dari kegemukan
+                </p>
+                <p>Diabetes</p>
+                <p>Hipertensi</p>
+                <p>Sakit Jantung</p>
+                <p>Osteoarthritis</p>
+              </div>
+              <br>
+              <button type="button" class="btn btn-primary btn-md" id="btnKonsul">Konsultasi Dokter Via Aplikasi</button>
+              <button type="button" class="btn btn-primary btn-md" id="btnRegist">Registrasi Online Sekarang</button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <script
+      src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"
+      integrity="sha384-w76AqPfDkMBDXo30jS1Sgez6pr3x5MlQ1ZAGC+nuZB+EYdgRZgiwxhTBTkF7CXvN"
+      crossorigin="anonymous"
+    ></script>
+    <script src="index.js"></script>
+  </body>
+</html>
